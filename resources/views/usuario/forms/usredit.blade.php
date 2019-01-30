@@ -16,9 +16,9 @@
 	</div>
 	<div class="form-group">
 		{!!Form::label('photo','Foto:')!!}
-		{!!Form::text('photo',null,['class'=>'form-control','placeholder'=>'Ingresa la foto del usuario'])!!}
+		{!!Form::file('photo')!!}
 	</div>
 	<div class="form-group">
 		{!!Form::label('email','Correo:')!!}
-		{!!Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingresa el email del usuario'])!!}
+		{!!Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingresa el email del usuario','required autofocus'])!!}
 	</div>

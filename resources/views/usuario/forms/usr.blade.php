@@ -16,13 +16,15 @@
 	</div>
 	<div class="form-group">
 		{!!Form::label('photo','Foto:')!!}
-		{!!Form::text('photo',null,['class'=>'form-control','placeholder'=>'Ingresa la foto del usuario'])!!}
+		{!!Form::file('photo')!!}
 	</div>
 	<div class="form-group">
 		{!!Form::label('email','Correo:')!!}
-		{!!Form::text('email',null,['class'=>'form-control','placeholder'=>'Ingresa el email del usuario'])!!}
+		{!!Form::email('email',null,['class'=>'form-control','placeholder'=>'Ingresa el email del usuario'])!!}
 	</div>
 	<div class="form-group">
 		{!!Form::label('password','Contraseña:')!!}
 		{!!Form::password('password',['class'=>'form-control','placeholder'=>'Ingresa la contraseña del usuario'])!!}
 	</div>
+
+	                        

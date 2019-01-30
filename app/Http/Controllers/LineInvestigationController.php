@@ -42,7 +42,7 @@ class LineInvestigationController extends Controller
         $line->name=$request->name;
         
         $line->save();
-        return redirect('/lineaInvestigacion')->with('message','store');
+        return redirect('/lineaInvestigacion')->with('message','Registro exitoso');
     }
 
     /**
