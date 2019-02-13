@@ -27,8 +27,8 @@ class CreateHotbedsTable extends Migration
             $table->text('workplan');
             $table->integer('id_school')->unsigned();
             $table->integer('id_research_center')->unsigned();
-            $table->foreign('id_school')->references('id')->on('schools');
-            $table->foreign('id_research_center')->references('id')->on('research_centers');
+            $table->foreign('id_school')->references('id')->on('schools')->onDelete('cascade');;
+            $table->foreign('id_research_center')->references('id')->on('research_centers')->onDelete('cascade');;
             $table->timestamps();
         });
     }

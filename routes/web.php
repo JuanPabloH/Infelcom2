@@ -21,6 +21,8 @@ Route::resource('usuario','UsersController');
 Route::resource('lineaInvestigacion','LineInvestigationController');
 Route::resource('facultad','FacultyController');
 Route::resource('escuela','SchoolController');
+Route::resource('semillero','HotbedController');
+Route::resource('centroInvestigacion','ResearchCenterController');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('usuario/images/{filename}',function($filename){
 

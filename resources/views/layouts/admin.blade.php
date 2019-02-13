@@ -111,6 +111,30 @@
                                 </li>
                             </ul>
                         </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-child fa-fw"></i>Centro de Investigación<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/centroInvestigacion/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/centroInvestigacion')!!}"><i class='fa fa-list-ol fa-fw'></i>Centros</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-child fa-fw"></i>Semilleros de investigacion<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/semillero/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/semillero')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Semilleros</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

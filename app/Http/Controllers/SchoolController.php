@@ -101,11 +101,29 @@ class SchoolController extends Controller
     public function update(Request $request, $id)
     {
     	$data=$request->all();
-        $rules = array(
-            'code' => ['required','string', 'max:255','unique:schools'],
-            'name' => ['required', 'string', 'max:255','unique:schools'],
-            'id_faculty' => ['required'],            
+        $school = School::find($id);
+
+        if ($request->code==$school->code && $request->name==$school->name) {
+            $rules = array(       
         );
+        }
+        elseif ($request->code==$school->code) {
+            $rules = array(
+            'name' => ['required', 'string', 'max:255','unique:faculties'],           
+        );
+        }
+        elseif ($request->name==$school->name) {
+            $rules = array(
+            'code' => ['required','string', 'max:255','unique:faculties'],           
+        );
+        }
+        else{
+            $rules = array(
+            'code' => ['required','string', 'max:255','unique:faculties'],
+            'name' => ['required', 'string', 'max:255','unique:faculties'],           
+        );
+        }
+
         $messages = [
             'code.required' => 'Por favor ingrese el campo del Codigo de la escuela',
             'code.unique' => 'El Codigo ingresado ya se encuentra registrado',        
@@ -118,7 +136,6 @@ class SchoolController extends Controller
         if ($v->fails()) {
             return redirect()->back()->withErrors($v->errors())->withInput($request->except('password'));
         }
-    	$school = School::find($id);
         $school->code=$request->code;
         $school->name=$request->name;
         $school->id_faculty=$request->id_faculty;
