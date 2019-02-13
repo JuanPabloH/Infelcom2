@@ -18,7 +18,7 @@ class CreateSchoolsTable extends Migration
             $table->string('code')->unique();
             $table->string('name')->unique();
             $table->integer('id_faculty')->unsigned();
-            $table->foreign('id_faculty')->references('id')->on('faculties');
+            $table->foreign('id_faculty')->references('id')->on('faculties')->onDelete('cascade');
             $table->timestamps();
         });
     }

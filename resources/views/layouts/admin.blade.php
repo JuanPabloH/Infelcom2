@@ -100,6 +100,17 @@
                             </ul>
                         </li>
 
+                        <li>
+                            <a href="#"><i class="fa fa-child fa-fw"></i>Escuelas<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/escuela/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/escuela')!!}"><i class='fa fa-list-ol fa-fw'></i>Escuelas</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
