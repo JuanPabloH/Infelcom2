@@ -45,7 +45,6 @@ class UsersController extends Controller
             'document' => ['required','string', 'max:255','unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'photo' => ['string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6']
         );
@@ -135,7 +134,6 @@ class UsersController extends Controller
             'document' => ['required','string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'photo' => ['string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
         );  
         }
@@ -144,7 +142,6 @@ class UsersController extends Controller
             'document' => ['required','string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'photo' => ['string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         ); 
         }
@@ -153,7 +150,6 @@ class UsersController extends Controller
             'document' => ['required','string', 'max:255','unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'photo' => ['string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
         );
         }
@@ -162,7 +158,6 @@ class UsersController extends Controller
             'document' => ['required','string', 'max:255','unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
-            'photo' => ['string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         );
         }
@@ -228,11 +223,10 @@ class UsersController extends Controller
     {
       	//$role_user=Role_user::where('user_id','=',$id)->get(); 
       	//Role_user::destroy($role_user);
+        $user= User::find($id);
      	User::destroy($id);
-       /// $user= User::find($id);
-        //$user
-        //->roles()
-        //->detach(Role_user::where('user_id', $id)
+       /// 
+        //$user->roles()->detach(Role_user::where('user_id', $id);
         Session::flash('message','Usuario Eliminado Correctamente');
         return redirect('/usuario');
     }

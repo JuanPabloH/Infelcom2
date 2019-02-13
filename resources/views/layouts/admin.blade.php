@@ -88,6 +88,18 @@
                             </ul>
                         </li>
 
+                        <li>
+                            <a href="#"><i class="fa fa-child fa-fw"></i>Facultades<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/facultad/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/facultad')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Facultades</a>
+                                </li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
             </div>
@@ -113,11 +125,12 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li>
-                                <a href="#"><i class="fa fa-users fa-fw"></i> Usuario<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-user fa-fw"></i> Usuario<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        {!!link_to_route('usuario.edit', $title = 'Editar', $parameters = Auth::user(), $attributes = ['class'=>'fa fa-plus fa-fw'])!!}
-
+                                       <a href="{{route('usuario.edit', $parameters = Auth::user())}}"> 
+                                        <i class='fa fa-plus fa-fw'>Editar</i>
+                                        </a>
                                     </li>
 
                                 </ul>

@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::resource('usuario','UsersController');
 Route::resource('lineaInvestigacion','LineInvestigationController');
+Route::resource('facultad','FacultyController');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('usuario/images/{filename}',function($filename){
 
