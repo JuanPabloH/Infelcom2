@@ -16,9 +16,8 @@ class SchoolController extends Controller
     public function index()
     {
         
-        $schools= School::paginate(5);
-        $faculties=Faculty::all();        
-        return view('escuela.index',compact('schools'),['faculties'=>$faculties]);
+        $schools= School::paginate(5);       
+        return view('escuela.index',compact('schools'));
     }
 
     /**

@@ -11,7 +11,7 @@
 		{!!Form::text('last_name',null,['class'=>'form-control','placeholder'=>'Ingresa el apellido del usuario'])!!}
 	</div>
 	<div class="form-group">
-		{!!Form::label('cv','CV:')!!}
+		{!!Form::label('cv','CV Lac:')!!}
 		{!!Form::text('cv',null,['class'=>'form-control','placeholder'=>'Ingresa el cv del usuario'])!!}
 	</div>
 	<div class="form-group">

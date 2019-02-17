@@ -10,21 +10,18 @@
 	@section('content')
 	<table class="table">
 		<thead>
-			<th>Codigo</th>
+			<th>Id</th>
 			<th>Name</th>
-			<th>Facultad</th>
 			<th>Operacion</th>
 		</thead>
 		
 		<tbody>
-			@foreach($schools as $school)
+			@foreach($researchAreas as $researchArea)
 			<tr>
-				<td>{{$school->code}}</td>
-		        <td>{{$school->name}}</td>
-		        <?php $nameFaculty=App\Faculty::find($school->id_faculty) ?>	
-		        	<td>{{$nameFaculty->name}}</td>		     
+				<td>{{$researchArea->id}}</td>
+		        <td>{{$researchArea->name}}</td>
 				<td>
-					{!!link_to_route('escuela.edit', $title = 'Editar', $parameters = $school, $attributes = ['class'=>'btn btn-primary'])!!}
+					{!!link_to_route('areaInvestigacion.edit', $title = 'Editar', $parameters = $researchArea, $attributes = ['class'=>'btn btn-primary'])!!}
 				</td>	
 			</tr>
 
@@ -32,5 +29,5 @@
 		</tbody>
 		
 	</table>
-	{!!$schools->render()!!}
+	{!!$researchAreas->render()!!}
 	@endsection

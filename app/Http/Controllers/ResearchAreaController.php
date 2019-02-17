@@ -1,23 +1,25 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\ResearchCenter;
-use Session;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Http\Request;
 
-class ResearchCenterController extends Controller
+use Illuminate\Http\Request;
+use App\ResearchArea;
+use Illuminate\Support\Facades\Validator;
+use Session;
+
+
+class ResearchAreaController extends Controller
 {
-    /**
+      /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $researchCenters= ResearchCenter::paginate(5);
+        $researchAreas= ResearchArea::paginate(5);
             
-        return view('centroInvestigacion.index',compact('researchCenters'));
+        return view('areaInvestigacion.index',compact('researchAreas'));
     }
 
     /**
@@ -28,7 +30,7 @@ class ResearchCenterController extends Controller
     public function create()
     {
         
-        return view('centroInvestigacion.create');
+        return view('areaInvestigacion.create');
     }
 
     /**
@@ -41,7 +43,7 @@ class ResearchCenterController extends Controller
     {
         $data=$request->all();
         $rules = array(
-            'name' => ['required', 'string', 'max:255','unique:research_centers'],           
+            'name' => ['required', 'string', 'max:255','unique:research_areas'],           
         );
         $messages = [    
             'name.required' => 'Por favor ingrese el campo del nombre',
@@ -51,11 +53,11 @@ class ResearchCenterController extends Controller
         if ($v->fails()) {
             return redirect()->back()->withErrors($v->errors());
         }
-        $researchCenter=new ResearchCenter;
-        $researchCenter->name=$request->name;
+        $researchArea=new ResearchArea;
+        $researchArea->name=$request->name;
         
-        $researchCenter->save();
-        return redirect('/centroInvestigacion')->with('message','El centro de investigacion se ha registrado de forma exitosa');
+        $researchArea->save();
+        return redirect('/areaInvestigacion')->with('message','El area de investigacion se ha registrado de forma exitosa');
     }
 
     /**
@@ -77,8 +79,8 @@ class ResearchCenterController extends Controller
      */
     public function edit($id)
     {
-        $researchCenter =ResearchCenter::find($id);
-        return view('centroInvestigacion.edit',['researchCenter'=>$researchCenter]);
+        $researchArea =ResearchArea::find($id);
+        return view('areaInvestigacion.edit',['researchArea'=>$researchArea]);
     }
 
     /**
@@ -91,15 +93,15 @@ class ResearchCenterController extends Controller
     public function update(Request $request, $id)
     {
         $data=$request->all();
-        $researchCenter = ResearchCenter::find($id);
+        $researchArea = ResearchArea::find($id);
 
-        if ($researchCenter->name == $request->name) {
+        if ($researchArea->name == $request->name) {
             $rules = array(         
         );
         }
         else{
             $rules = array(
-            'name' => ['required', 'string', 'max:255','unique:research_centers']);
+            'name' => ['required', 'string', 'max:255','unique:research_areas']);
         }
         
         
@@ -112,11 +114,11 @@ class ResearchCenterController extends Controller
             return redirect()->back()->withErrors($v->errors())->withInput($request->except('password'));
         }
         
-        $researchCenter->name=$request->name;
+        $researchArea->name=$request->name;
         
-        $researchCenter->save();
-        Session::flash('message','Información de Centro de investigacion actualizada correctamente');
-        return redirect('/centroInvestigacion');
+        $researchArea->save();
+        Session::flash('message','Información de area de investigacion actualizada correctamente');
+        return redirect('/areaInvestigacion');
     }
 
     /**
@@ -128,7 +130,7 @@ class ResearchCenterController extends Controller
     public function destroy($id)
     {
         ResearchCenter::destroy($id);
-        Session::flash('message','Centro de investigacion Eliminado Correctamente');
-        return redirect('/centroInvestigacion');
+        Session::flash('message','Area de investigacion Eliminado Correctamente');
+        return redirect('/areaInvestigacion');
     }
 }

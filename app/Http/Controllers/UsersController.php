@@ -76,10 +76,18 @@ class UsersController extends Controller
     	$user->cv=$request->cv;
     	$user->email=$request->email;
     	$user->password=Hash::make($request->password);
+        
     	$user->save();
-    	$user
-        ->roles()
-        ->attach(Role::where('name', 'user')->first());
+        if ($request->role==1) {
+            $user
+            ->roles()
+            ->attach(Role::where('name', 'researcher')->first());
+        }elseif ($request->role==2) {
+            $user
+            ->roles()
+            ->attach(Role::where('name', 'user')->first());
+        }
+    	
         if ($hasfile) {
             $request->photo->storeAs('images',"$request->document.$extension");
         }
@@ -203,6 +211,7 @@ class UsersController extends Controller
         }
     	
         $user->save();
+
         if ($hasfile) {
             $request->photo->storeAs('images',"$request->document.$extension");
         }

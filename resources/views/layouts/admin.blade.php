@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Infelcom Group System</a>
+                <a class="navbar-brand" href="#">Infelcom Group System</a>
             </div>
 
             @if(Auth::user()->hasRole('admin'))
@@ -65,7 +65,7 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="#"><i class="fa fa-users fa-fw"></i> Usuario<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{!!URL::to('/usuario/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
@@ -77,7 +77,7 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-child fa-fw"></i> Lineas de Investigacion<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bars fa-fw"></i> Lineas de Investigacion<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{!!URL::to('/lineaInvestigacion/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
@@ -89,7 +89,7 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-child fa-fw"></i>Facultades<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-building-o fa-fw"></i>Facultades<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{!!URL::to('/facultad/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
@@ -101,7 +101,7 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-child fa-fw"></i>Escuelas<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-graduation-cap fa-fw"></i>Escuelas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{!!URL::to('/escuela/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
@@ -113,7 +113,7 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-child fa-fw"></i>Centro de Investigación<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-university fa-fw"></i>Centro de Investigación<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{!!URL::to('/centroInvestigacion/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
@@ -135,9 +135,111 @@
                                 </li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="#"><i class="fa fa-area-chart fa-fw"></i>Área de Investigación<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/areaInvestigacion/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/areaInvestigacion')!!}"><i class='fa fa-list-ol fa-fw'></i>Áreas</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-puzzle-piece fa-fw"></i>Relacionar Semillero y Área<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/areaSemillero/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/areaSemillero')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Área-Semilleros</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="#"><i class="fa fa-random fa-fw"></i>Relacionar Semillero y Línea<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/semilleroLinea/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/semilleroLinea')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Semilleros-Líneas</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i>Relacionar Semillero e Investigador<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/userSemillero/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/userSemillero')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Semilleros-Usuarios</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
+            @elseif(Auth::user()->hasRole('researcher'))
+                <ul class="nav navbar-top-links navbar-right">
+                     <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class="fa fa-user fa-fw"></i>{{ Auth::user()->name }} <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li class="divider"></li>
+                            <li><a href="{{route('logout')}}"
+                                           onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="navbar-default sidebar" role="navigation">
+                    <div class="sidebar-nav navbar-collapse">
+                        <ul class="nav" id="side-menu">
+                            <li>
+                                <a href="#"><i class="fa fa-user fa-fw"></i> Perfil<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                       <a href="{{route('usuario.edit', $parameters = Auth::user())}}"> 
+                                        <i class='fa fa-plus fa-fw'>Editar</i>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/usuario/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                     <a href="{!!URL::to('/usuario')!!}"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i>Relacionar Semillero e Investigador<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/userSemillero/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/userSemillero')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Semilleros-Usuarios</a>
+                                </li>
+                            </ul>
+                        </li>
+                        </ul>
+                    </div>
+                </div>
             @else
                 <ul class="nav navbar-top-links navbar-right">
                      <li class="dropdown">
@@ -160,7 +262,7 @@
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
                             <li>
-                                <a href="#"><i class="fa fa-user fa-fw"></i> Usuario<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-user fa-fw"></i>Perfil<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                        <a href="{{route('usuario.edit', $parameters = Auth::user())}}"> 
@@ -173,6 +275,7 @@
                         </ul>
                     </div>
                 </div>
+
             @endif
             
 

@@ -32,7 +32,7 @@ class HotbedController extends Controller
     {
         $researchCenters=ResearchCenter::all();
         $schools=School::all();
-        return view('semillero.create',['schools'=>$schools],['researchCenters'=>$researchCenters]);
+        return view('semillero.create',['schools'=>$schools],['centros'=>$researchCenters]);
     }
 
     /**
@@ -138,7 +138,6 @@ class HotbedController extends Controller
         $data=$request->all();
         $rules = array(
             'name' => ['required','string', 'max:255','unique:hotbeds'],
-            'name' => ['required', 'string', 'max:255'],
             'id_school' => ['required'],     
             'creationDate' => ['required'],     
             'id_research_center' => ['required'], 
