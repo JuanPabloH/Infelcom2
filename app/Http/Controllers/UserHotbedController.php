@@ -15,10 +15,17 @@ class UserHotbedController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
+        if (trim($request->name) != "") {           
+           $hotbeds=Hotbed::where("name","LIKE","%$request->name%")->paginate(3);      
+        }
+        else{
+            $hotbeds=Hotbed::paginate(3);      
+        }
         $user_semilleros= User_Hotbed::all(); 
-        $hotbeds=Hotbed::paginate(3);      
+        
         return view('userSemillero.index',compact('user_semilleros'),compact('hotbeds'));
     }
 
@@ -106,7 +113,7 @@ class UserHotbedController extends Controller
     public function destroy($id)
     {
         User_Hotbed::destroy($id);
-        Session::flash('message','Relación Eliminada Correctamente');
+        Session::flash('message','Usuario eliminado del grupo correctamente');
         return redirect('/userSemillero');
     }
 }

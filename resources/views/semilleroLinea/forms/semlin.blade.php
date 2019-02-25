@@ -10,7 +10,7 @@
 
 <div class="form-group">
 	
-		{!!Form::label('hotbed','Elija el semillero a relacionar:')!!}
+		{!!Form::label('hotbed','Elija el grupo a relacionar:')!!}
 		<select id="id_hotbed" class="form-control" name="id_hotbed">
 			@foreach($hotbeds as $hotbed)
   			<option value="{{$hotbed->id}}">{{$hotbed->name}}</option>

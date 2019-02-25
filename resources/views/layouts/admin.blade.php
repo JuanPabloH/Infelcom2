@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Infelcom Group System</a>
+                <a class="navbar-brand" href="{{'home'}}">Infelcom Group System</a>
             </div>
 
             @if(Auth::user()->hasRole('admin'))
@@ -72,21 +72,10 @@
                                 </li>
                                 <li>
                                      <a href="{!!URL::to('/usuario')!!}"><i class='fa fa-list-ol fa-fw'></i> Usuarios</a>
-                                </li>
+                                </li>                                
                             </ul>
                         </li>
-
-                        <li>
-                            <a href="#"><i class="fa fa-bars fa-fw"></i> Lineas de Investigacion<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{!!URL::to('/lineaInvestigacion/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
-                                </li>
-                                <li>
-                                    <a href="{!!URL::to('/lineaInvestigacion')!!}"><i class='fa fa-list-ol fa-fw'></i>Lineas</a>
-                                </li>
-                            </ul>
-                        </li>
+            
 
                         <li>
                             <a href="#"><i class="fa fa-building-o fa-fw"></i>Facultades<span class="fa arrow"></span></a>
@@ -125,61 +114,68 @@
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-child fa-fw"></i>Semilleros de investigacion<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-child fa-fw"></i>INFELCOM<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">                                                    
+                                <li><?php $idGrupo=1 ?>
+                                    <a href="{{route('grupo.edit', $parameters = $idGrupo)}}"> 
+                                        <i class='fa fa-pencil-square-o fa-fw'>Modificar información</i>
+                                    </a>
+                                </li>                                                        
+
+                                <li>
+                                    <a href="{!!URL::to('/grupo')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Información de Infelcom</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                                            
+                        <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i>Semilleros de investigación<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{!!URL::to('/semillero/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="{!!URL::to('/semillero')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Semilleros</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-area-chart fa-fw"></i>Área de Investigación<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{!!URL::to('/areaInvestigacion/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
-                                </li>
-                                <li>
-                                    <a href="{!!URL::to('/areaInvestigacion')!!}"><i class='fa fa-list-ol fa-fw'></i>Áreas</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-puzzle-piece fa-fw"></i>Relacionar Semillero y Área<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="{!!URL::to('/areaSemillero/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
-                                </li>
-                                <li>
-                                    <a href="{!!URL::to('/areaSemillero')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Área-Semilleros</a>
+                                    <a href="{!!URL::to('/semillero')!!}"><i class='fa fa-list-ol fa-fw'></i>Semilleros</a>
                                 </li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="#"><i class="fa fa-random fa-fw"></i>Relacionar Semillero y Línea<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-random fa-fw"></i>Inscripción Usuario-Semillero<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!!URL::to('/semilleroLinea/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL::to('/userSemillero/create')!!}"><i class='fa fa-plus fa-fw'></i> Inscribir</a>
                                 </li>
                                 <li>
-                                    <a href="{!!URL::to('/semilleroLinea')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Semilleros-Líneas</a>
+                                    <a href="{!!URL::to('/userSemillero')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Inscritos</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> 
+
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i>Relacionar Semillero e Investigador<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-lightbulb-o fa-fw"></i>Proyecto de investigación<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="{!!URL::to('/userSemillero/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                    <a href="{!!URL::to('/proyecto/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="{!!URL::to('/userSemillero')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Semilleros-Usuarios</a>
+                                    <a href="{!!URL::to('/proyecto')!!}"><i class='fa fa-list-ol fa-fw'></i>Proyecto</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> 
+
+                        <li>
+                            <a href="#"><i class="fa fa-file-pdf-o fa-fw"></i>Productividad de Proyectos<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/productividad/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/productividad')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver</a>
+                                </li>
+                            </ul>
+                        </li>                     
                     </ul>
                 </div>
             </div>
@@ -227,13 +223,13 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i>Relacionar Semillero e Investigador<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i>Relacionar Grupo e Investigador<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="{!!URL::to('/userSemillero/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
                                 </li>
                                 <li>
-                                    <a href="{!!URL::to('/userSemillero')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Semilleros-Usuarios</a>
+                                    <a href="{!!URL::to('/userSemillero')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Grupos-Usuarios</a>
                                 </li>
                             </ul>
                         </li>

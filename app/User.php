@@ -70,4 +70,9 @@ class User extends Authenticatable
         }
         return false;
     }
+    public function scopeName($query,$name){
+        if (trim($name) != "") {
+           $query->where(\DB::raw("CONCAT(name,' ',last_name)"),"LIKE","%$name%"); 
+        }    
+    }
 }
