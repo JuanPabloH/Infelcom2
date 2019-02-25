@@ -14,9 +14,10 @@ use Session;
 
 class UsersController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-    	$users=User::paginate(5);
+
+    	$users=User::name($request->get('name'))->paginate(5);
     	
         return view('usuario.index',compact('users'));
     }

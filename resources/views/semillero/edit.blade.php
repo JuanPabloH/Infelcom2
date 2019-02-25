@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 	@section('content')
 		@include('alerts.request')
+
 		{!!Form::model($hotbed,['route'=>['semillero.update',$hotbed],'method'=>'PUT'])!!}
 			@include('semillero.forms.hotbed')
 			{!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}

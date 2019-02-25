@@ -9,7 +9,7 @@ class School extends Model
     public function Faculty(){
     	return $this->belongsTo('App\Faculty');
     }
-    public function Hotbeds(){
-    	return $this->hasMany('App\Hotbed');
+    public function Groups(){
+    	return $this->hasMany('App\Group');
     }
 }

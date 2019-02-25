@@ -10,10 +10,10 @@
 	@section('content')
 	@foreach($areas as $area)
 	<strong><h3>{{$area->name}}</h3></strong>
-	<h5>Semilleros pertenecientes</h5>
+	<h5>Grupos pertenecientes</h5>
 	<table class="table">
 		<thead>
-			<th>Nombre Semillero</th>
+			<th>Nombre Grupo</th>
 			<th>Acronimo</th>
 			<th>Operacion</th>
 		</thead>

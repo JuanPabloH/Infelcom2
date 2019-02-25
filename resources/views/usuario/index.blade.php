@@ -7,6 +7,13 @@
 @endif
 
 	@section('content')
+	<br>
+	<nav class="navbar navbar-light bg-light">	  
+	  	{!! Form::open(['route'=>'usuario.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right', 'role'=>'search']) !!}	  		 
+	    {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre de usuario']) !!}
+	    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+	    {!! Form::close() !!}
+	</nav>	
 	<table class="table">
 		<thead>
 			<th>Nombre</th>
@@ -20,6 +27,8 @@
 		
 		<tbody>
 			@foreach($users as $user)
+			@if(!$user->hasRole('admin'))
+			
 			<tr>
 				<td>{{$user->name}}</td>
 				<td>{{$user->last_name}}</td>
@@ -37,10 +46,10 @@
 					{!!link_to_route('usuario.edit', $title = 'Editar', $parameters = $user, $attributes = ['class'=>'btn btn-primary'])!!}
 				</td>	
 			</tr>
-
+			@endif
 			@endforeach
 		</tbody>
 		
 	</table>
-	{!!$users->render()!!}
+	{!!$users->appends(Request::only(['name']))->render()!!}
 	@endsection

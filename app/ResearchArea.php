@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ResearchArea extends Model
 {
-    public function Area_hotbeds(){
-    	return $this->hasMany('App\Area_Hotbed');
+    public function Area_groups(){
+    	return $this->hasMany('App\Area_Group');
     }
-    public function hotbeds(){
-    	return $this->belongsToMany('App\Hotbed','area_hotbeds');
+    public function groups(){
+    	return $this->belongsToMany('App\Group','area_groups');
     }
 }

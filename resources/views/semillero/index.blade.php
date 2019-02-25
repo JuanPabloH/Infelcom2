@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+
 @if(Session::has('message'))
 <div class="alert alert-success alert-dismissible" role="alert">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -7,34 +8,29 @@
 @endif
 
 	@section('content')
+	<nav class="navbar navbar-light bg-light">		
+	  	{!! Form::open(['route'=>'semillero.index','method'=>'GET','class'=>'navbar-form navbar-left pull-right', 'role'=>'search']) !!}
+
+	    {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre de semillero']) !!}
+	    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+	    {!! Form::close() !!}
+	</nav>
 	<table class="table">
 		<thead>
-			<th>Clasificaión</th>
-			<th>Nombre</th>
-			<th>Fecha de creación</th>
-			<th>Correo</th>
-		    <th>Acronimo</th>
-		    <th>Sitio Web</th>
+			<th>Codigo</th>
+			<th>Name</th>
+			<th>Estado</th>
 			<th>Objetivo</th>
-			<th>Misión</th>
-			<th>Visión</th>
-			<th>Plan de trabajo</th>
-			<th>Acciones</th>
+			<th>Operacion</th>
 		</thead>
 		
 		<tbody>
 			@foreach($hotbeds as $hotbed)
 			<tr>
-				<td>{{$hotbed->classification}}</td>
-				<td>{{$hotbed->name}}</td>
-				<td>{{$hotbed->creationDate}}</td>
-		        <td>{{$hotbed->email}}</td>
-		        <td>{{$hotbed->acronym}}</td>
-		        <td>{{$hotbed->website}}</td>
+				<td>{{$hotbed->code}}</td>
+		        <td>{{$hotbed->name}}</td>
+		        <td>{{$hotbed->status}}</td>
 		        <td>{{$hotbed->objective}}</td>
-		        <td>{{$hotbed->mision}}</td>
-		        <td>{{$hotbed->vision}}</td>
-		        <td>{{$hotbed->workplan}}</td>
 				<td>
 					{!!link_to_route('semillero.edit', $title = 'Editar', $parameters = $hotbed, $attributes = ['class'=>'btn btn-primary'])!!}
 				</td>	
@@ -44,5 +40,5 @@
 		</tbody>
 		
 	</table>
-	{!!$hotbeds->render()!!}
+	{!!$hotbeds->appends(Request::only(['name']))->render()!!}
 	@endsection

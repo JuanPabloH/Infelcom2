@@ -19,18 +19,35 @@ Auth::routes();
 
 Route::resource('usuario','UsersController');
 Route::resource('lineaInvestigacion','LineInvestigationController');
-Route::resource('semilleroLinea','Hotbed_LineController');
+Route::resource('grupoLinea','Group_LineController');
 Route::resource('facultad','FacultyController');
-Route::resource('areaSemillero','Area_HotbedController');
-Route::resource('userSemillero','UserHotbedController');
+Route::resource('areaGrupo','Area_GroupController');
+Route::resource('userGrupo','UserHotbedController');
 Route::resource('escuela','SchoolController');
+Route::resource('grupo','GroupController');
 Route::resource('semillero','HotbedController');
+Route::resource('proyecto','ProjectController');
+Route::resource('userSemillero','UserHotbedController');
 Route::resource('centroInvestigacion','ResearchCenterController');
 Route::resource('areaInvestigacion','ResearchAreaController');
+Route::resource('productividad','ProductivityController');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('usuario/images/{filename}',function($filename){
 
 	$path=storage_path("app/images/$filename");
+	
+	if (!\File::exists($path)) abort(404);
+	
+	$file=\File::get($path);
+	$type=\File::mimeType($path);
+	$response=Response::make($file,200);
+	$response->header("Content-Type",$type);
+	return $response;
+
+});
+Route::get('productividad/productividadFiles/{filename}',function($filename){
+
+	$path=storage_path("app/productividadFiles/$filename");
 	
 	if (!\File::exists($path)) abort(404);
 	
