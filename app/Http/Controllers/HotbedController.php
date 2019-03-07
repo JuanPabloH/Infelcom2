@@ -1,24 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Hotbed;
 
-use App\ResearchCenter;
-use App\School;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Hotbed;
+use App\Line_of_investigation;
 use Session;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
 
 class HotbedController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $hotbeds=Hotbed::paginate(5);
+        $hotbeds=Hotbed::name($request->get('name'))->paginate(1);
         
         return view('semillero.index',compact('hotbeds'));
     }
@@ -30,9 +29,8 @@ class HotbedController extends Controller
      */
     public function create()
     {
-        $researchCenters=ResearchCenter::all();
-        $schools=School::all();
-        return view('semillero.create',['schools'=>$schools],['centros'=>$researchCenters]);
+        $lines=Line_of_investigation::all();
+        return view('semillero.create',['lines'=>$lines]);
     }
 
     /**
@@ -45,57 +43,28 @@ class HotbedController extends Controller
     {
         $data=$request->all();
         $rules = array(
-            'name' => ['required','string', 'max:255','unique:hotbeds'],
-            'name' => ['required', 'string', 'max:255'],
-            'id_school' => ['required'],     
-            'creationDate' => ['required'],     
-            'id_research_center' => ['required'], 
-            'acronym' => ['required'],     
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:hotbeds'],
-            'website' => ['required'],  
-            'objective' => ['required'],  
-            'mision' => ['required'],  
-            'vision' => ['required'], 
-            'workplan' => ['required'],  
+            'code' => ['required','string', 'max:255','unique:hotbeds'],
+            'name' => ['required', 'string', 'max:255','unique:hotbeds'],           
         );
         $messages = [
-            'id_school'=>'Verifique la existencia de Escuelas para asignar el grupo',
-            'id_research_center'=>'Verifique la existencia de centros de investigación para asignar el grupo',
-            'name.required' => 'Por favor ingrese en nombre',
-            'name.unique' => 'El nombre ingresado ya se encuentra registrado',
-            'creationDate.required' => 'Ingrese una fecha de creacion valida',
-            'acronym.required' => 'Por favor ingrese el acronimo del semillero',
-            'email.required' => 'Por favor ingrese el email del semillero',
-            'website.required' => 'Por favor ingrese el sitio web del semillero',
-            'objective.required' => 'Por favor ingrese el objetivo del semillero',
-            'mision.required' => 'Por favor ingrese la mision del semillero',
-            'vision.required' => 'Por favor ingrese la vision del semillero',
-            'workplan.required' => 'Por favor ingrese el plan de trabajo del semillero',
-
+            'code.required' => 'Por favor ingrese el campo del Codigo de la escuela',
+            'code.unique' => 'El Codigo ingresado ya se encuentra registrado',        
+            'name.required' => 'Por favor ingrese el campo del nombre',
+            'name.unique' => 'El nombre ingresado ya se encuentra registrado',                               
         ];
         $v=Validator::make($data,$rules,$messages);
         if ($v->fails()) {
-            return redirect()->back()->withErrors($v->errors())->withInput($request->all());
+            return redirect()->back()->withErrors($v->errors())->withInput($request->except('password'));
         }
         $hotbed=new Hotbed;
-      
-        
-        $hotbed->classification=$request->classification;
+        $hotbed->code=$request->code;
         $hotbed->name=$request->name;
-        $hotbed->creationDate=$request->creationDate;
-        $hotbed->acronym=$request->acronym;
-        $hotbed->email=$request->email;
-        $hotbed->website=$request->website;
-        $hotbed->objective=$request->objective;
-        $hotbed->mision=$request->mision;
-        $hotbed->vision=$request->vision;
-        $hotbed->workplan=$request->workplan;
-        $hotbed->id_school=$request->id_school;
-        $hotbed->id_research_center=$request->id_research_center;
+        $hotbed->status=$request->status;
+		$hotbed->objective=$request->objective;
+        $hotbed->id_group=1;  
+        $hotbed->id_line=$request->id_line;              
         $hotbed->save();
-        
-
-        return redirect('/semillero')->with('message','semillero registrado con exito');
+        return redirect('/semillero')->with('message','El semillero se ha registrado de forma exitosa');
     }
 
     /**
@@ -106,7 +75,7 @@ class HotbedController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -117,12 +86,9 @@ class HotbedController extends Controller
      */
     public function edit($id)
     {
-         $hotbed =Hotbed::find($id);
-        $researchCenters=ResearchCenter::all();
-        $schools=School::all();
-        $prueba="prueba";
-        return view('semillero.edit',['hotbed'=>$hotbed])
-        ->with('centros',$researchCenters)->with('schools',$schools);
+        $hotbed =Hotbed::find($id);
+        $lines=Line_of_investigation::all();
+        return view('semillero.edit',['hotbed'=>$hotbed],['lines'=>$lines]);
     }
 
     /**
@@ -134,59 +100,49 @@ class HotbedController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
         $data=$request->all();
-        $rules = array(
-            'name' => ['required','string', 'max:255','unique:hotbeds'],
-            'id_school' => ['required'],     
-            'creationDate' => ['required'],     
-            'id_research_center' => ['required'], 
-            'acronym' => ['required'],     
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:hotbeds'],
-            'website' => ['required'],  
-            'objective' => ['required'],  
-            'mision' => ['required'],  
-            'vision' => ['required'], 
-            'workplan' => ['required'],  
-        );
-        $messages = [
-            'id_school'=>'Verifique la existencia de Escuelas para asignar el grupo',
-            'id_research_center'=>'Verifique la existencia de centros de investigación para asignar el grupo',
-            'name.required' => 'Por favor ingrese en nombre',
-            'name.unique' => 'El nombre ingresado ya se encuentra registrado',
-            'creationDate.required' => 'Ingrese una fecha de creacion valida',
-            'acronym.required' => 'Por favor ingrese el acronimo del semillero',
-            'email.required' => 'Por favor ingrese el email del semillero',
-            'website.required' => 'Por favor ingrese el sitio web del semillero',
-            'objective.required' => 'Por favor ingrese el objetivo del semillero',
-            'mision.required' => 'Por favor ingrese la mision del semillero',
-            'vision.required' => 'Por favor ingrese la vision del semillero',
-            'workplan.required' => 'Por favor ingrese el plan de trabajo del semillero',
+        $hotbed=Hotbed::find($id);
 
+        if ($request->code==$hotbed->code && $request->name==$hotbed->name) {
+            $rules = array(       
+        );
+        }
+        elseif ($request->code==$hotbed->code) {
+            $rules = array(
+            'name' => ['required', 'string', 'max:255','unique:faculties'],           
+        );
+        }
+        elseif ($request->name==$hotbed->name) {
+            $rules = array(
+            'code' => ['required','string', 'max:255','unique:faculties'],           
+        );
+        }
+        else{
+            $rules = array(
+            'code' => ['required','string', 'max:255','unique:faculties'],
+            'name' => ['required', 'string', 'max:255','unique:faculties'],           
+        );
+        }
+
+        $messages = [
+            'code.required' => 'Por favor ingrese el campo del Codigo de la escuela',
+            'code.unique' => 'El Codigo ingresado ya se encuentra registrado',        
+            'name.required' => 'Por favor ingrese el campo del nombre',
+            'name.unique' => 'El nombre ingresado ya se encuentra registrado',                               
         ];
         $v=Validator::make($data,$rules,$messages);
         if ($v->fails()) {
-            return redirect()->back()->withErrors($v->errors())->withInput($request->all());
+            return redirect()->back()->withErrors($v->errors())->withInput($request->except('password'));
         }
-        $hotbed=Hotbed::find($id);
-      
-        
-        $hotbed->classification=$request->classification;
+        $hotbed->code=$request->code;
         $hotbed->name=$request->name;
-        $hotbed->creationDate=$request->creationDate;
-        $hotbed->acronym=$request->acronym;
-        $hotbed->email=$request->email;
-        $hotbed->website=$request->website;
-        $hotbed->objective=$request->objective;
-        $hotbed->mision=$request->mision;
-        $hotbed->vision=$request->vision;
-        $hotbed->workplan=$request->workplan;
-        $hotbed->id_school=$request->id_school;
-        $hotbed->id_research_center=$request->id_research_center;
-        $hotbed->save();
+        $hotbed->status=$request->status;
+		$hotbed->objective=$request->objective;
+        $hotbed->id_line=$request->id_line;    
         
-
-        return redirect('/semillero')->with('message','Información de semillero actualizada con exito');
+        $hotbed->save();
+        Session::flash('message','Información de semillero actualizada correctamente');
+        return redirect('/semillero');
     }
 
     /**
@@ -198,7 +154,7 @@ class HotbedController extends Controller
     public function destroy($id)
     {
         Hotbed::destroy($id);
-        Session::flash('message','Semillero Eliminado Correctamente');
+        Session::flash('message','Semillero eliminado Correctamente');
         return redirect('/semillero');
     }
 }
