@@ -6,6 +6,7 @@ use Tests\TestCase;
 use App\User;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Auth;
 
 class LoginTest extends TestCase
 {
@@ -25,6 +26,14 @@ class LoginTest extends TestCase
         $user = factory(User::class)->make();
         $response = $this->actingAs($user)->get('/login');
         $response->assertRedirect('/home');
+    }
+
+
+    public function test_authentication(){
+        $user = User::find(1);
+        $this->be($user);
+        $this->assertFalse(Auth::guest());
+
     }
     
 

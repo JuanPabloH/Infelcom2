@@ -91,22 +91,5 @@ class UsersTest extends TestCase
     	]);
     }
 
-   /** 	public function test_add_user(){
-		$user = User::find(1);
-		$response=$this->ActingAs($user)
-		->get('usuario/create')
-		->type('321456','document')
-		->type('NombreEj','name')
-		->type('ApellidoEj','last_name')
-		->type('ej@ejemplo.com','email')
-		->type('secret','password')
-		->press('Registrar');
-		
-
-	}*/
-
-	public function test_welcome_message(){
-		$this->visit('/')->see('Infelcom');
-	}
   
 }
