@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{'home'}}">Infelcom Group System</a>
+                <a class="navbar-brand">Infelcom Group System</a>
             </div>
 
             @if(Auth::user()->hasRole('admin'))

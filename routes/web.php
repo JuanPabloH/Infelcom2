@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
-
+Route::resource('index','IndexUserController');
+Route::resource('indexT','IndexTeacherController');
 Route::resource('usuario','UsersController');
 Route::resource('lineaInvestigacion','LineInvestigationController');
 Route::resource('grupoLinea','Group_LineController');

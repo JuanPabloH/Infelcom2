@@ -10,6 +10,6 @@ class Group_Line extends Model
     	return $this->belongsTo('App\Group');
     }
     public function line(){
-    	return $this->belongsTo('App\Line_of_investigations');
+    	return $this->belongsTo('App\Line_of_investigation');
     }
 }
