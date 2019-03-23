@@ -36,4 +36,10 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+    protected function getFailedLoginMessage()
+    {
+        return 'Datos no existen';
+    }
 }

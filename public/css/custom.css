@@ -1,0 +1,14 @@
+.navbar-laravel{
+	background-color: #3760a1;
+
+}
+.navbar-light .navbar-nav .nav-link {
+	color: rgba(0,0,0,.5);
+}
+
+.navbar-laravel .navbar-nav .nav-link {
+	color: #fff;
+}
+.navbar-laravel .navbar-brand {
+	color: #fff;
+}

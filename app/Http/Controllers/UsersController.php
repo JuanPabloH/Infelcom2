@@ -43,7 +43,7 @@ class UsersController extends Controller
     {
         $data=$request->all();
         $rules = array(
-            'document' => ['required','string', 'max:255','unique:users'],
+            'document' => ['required','numeric', 'max:255','unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -52,7 +52,7 @@ class UsersController extends Controller
         $messages = [
             'document.required' => 'Por favor ingrese el campo del documento',
             'document.unique' => 'El documento ingresado ya se encuentra registrado',
-            'document.integer' => 'El documento del usuario debe ser numerico, por favor verifique el campo',
+            'document.numeric' => 'El documento del usuario debe ser numerico, por favor verifique el campo',
             'name.required' => 'Por favor ingrese el campo del nombre',
             'last_name.required' => 'Por favor ingrese el campo del apellido',
             'email.required' => 'Por favor ingrese el campo del email',

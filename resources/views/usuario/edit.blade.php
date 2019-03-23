@@ -12,7 +12,7 @@
 			{!!Form::close()!!}
 		@else
 			{!!Form::model($user,['route'=>['usuario.update',$user],'method'=>'PUT','files'=>true])!!}
-				@include('usuario.forms.usredit')
+				@include('usuario.forms.usredit2')
 				{!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
 			{!!Form::close()!!}
 		@endif
