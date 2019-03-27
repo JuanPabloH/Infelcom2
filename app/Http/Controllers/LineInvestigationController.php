@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 use App\Line_of_investigation;
 use Session;
@@ -38,11 +39,24 @@ class LineInvestigationController extends Controller
      */
     public function store(Request $request)
     {
+        $data=$request->all();
+        $rules = array(
+            'name' => ['required', 'string', 'max:255','unique:line_of_investigations'],
+                 
+        );
+        $messages = [
+            'name.required' => 'Por favor ingrese el campo del nombre',
+            'name.unique' => 'El nombre ingresado ya se encuentra registrado',                               
+        ];
+        $v=Validator::make($data,$rules,$messages);
+        if ($v->fails()) {
+            return redirect()->back()->withErrors($v->errors())->withInput($request->except('password'));
+        }
         $line=new Line_of_investigation;
         $line->name=$request->name;
         
         $line->save();
-        return redirect('/lineaInvestigacion')->with('message','Registro exitoso');
+        return redirect('/grupo')->with('message','Registro exitoso');
     }
 
     /**
@@ -78,6 +92,26 @@ class LineInvestigationController extends Controller
     public function update(Request $request, $id)
     {
         $line = Line_of_investigation::find($id);
+
+
+        if ($line->name == $request->name) {
+            $rules = array(         
+        );
+        }
+        else{
+            $rules = array(
+            'name' => ['required', 'string', 'max:255','unique:line_of_investigations']);
+        }
+        
+        
+        $messages = [       
+            'name.required' => 'Por favor ingrese el campo del nombre',
+            'name.unique' => 'El nombre ingresado ya se encuentra registrado',                               
+        ];
+        $v=Validator::make($data,$rules,$messages);
+        if ($v->fails()) {
+            return redirect()->back()->withErrors($v->errors())->withInput($request->except('password'));
+        }
         $line->name=$request->name;
         
         $line->save();

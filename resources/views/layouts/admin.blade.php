@@ -65,6 +65,31 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
+                            <a href="#"><i class="fa fa-child fa-fw"></i>INFELCOM<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">                                                    
+                                <li><?php $idGrupo=1 ?>
+                                    <a href="{{route('grupo.edit', $parameters = $idGrupo)}}"> 
+                                        <i class='fa fa-pencil-square-o fa-fw'>Modificar información</i>
+                                    </a>
+                                </li>                                                        
+
+                                <li>
+                                    <a href="{!!URL::to('/grupo')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Información de Infelcom</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-newspaper-o fa-fw"></i>Noticia-Evento<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{!!URL::to('/noticia/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar</a>
+                                </li>
+                                <li>
+                                    <a href="{!!URL::to('/noticia')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Noticias-Eventos</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="#"><i class="fa fa-users fa-fw"></i> Usuarios<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -88,6 +113,7 @@
                                 </li>
                             </ul>
                         </li>
+                        
 
                         <li>
                             <a href="#"><i class="fa fa-graduation-cap fa-fw"></i>Escuelas<span class="fa arrow"></span></a>
@@ -113,20 +139,7 @@
                             </ul>
                         </li>
 
-                        <li>
-                            <a href="#"><i class="fa fa-child fa-fw"></i>INFELCOM<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">                                                    
-                                <li><?php $idGrupo=1 ?>
-                                    <a href="{{route('grupo.edit', $parameters = $idGrupo)}}"> 
-                                        <i class='fa fa-pencil-square-o fa-fw'>Modificar información</i>
-                                    </a>
-                                </li>                                                        
-
-                                <li>
-                                    <a href="{!!URL::to('/grupo')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Información de Infelcom</a>
-                                </li>
-                            </ul>
-                        </li>
+                        
 
                                             
                         <li>
