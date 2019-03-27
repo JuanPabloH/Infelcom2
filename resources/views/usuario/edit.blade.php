@@ -1,11 +1,11 @@
 @extends('layouts.admin')
 @section('content')
 <div class="row align-items-center">
-    <div class="col text-center" style="padding-left: 200px;">
-        <div class="card" style="width: 90rem;">
+    <div class="col" style="padding-left: 200px;">
+        <div class="card " style="width: 90rem;">
             <div class="card-header text-center">
                 <nav class="navbar navbar-light bg-info">
-                    <h3>EDITAR INFORMACIÓN PERSONAL</h3>
+                    <h3>EDITAR INFORMACIÓN</h3>
                 </nav>
             </div>
             <div class="card-body">
@@ -13,15 +13,24 @@
                 @if(Auth::user()->hasRole('admin'))
                 {!!Form::model($user,['route'=>['usuario.update',$user],'method'=>'PUT','files'=>true])!!}
                 @include('usuario.forms.usredit')
-
-                {!!Form::submit('Actualizar',['class'=>'btn btn-dark'])!!}
-                {!!Form::close()!!}
-
-                {!!Form::open(['route'=>['usuario.destroy', $user], 'method' => 'DELETE'])!!}
-                {!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
-                {!!Form::close()!!}
-
             </div>
+
+            <table class="table">
+
+                <tr>
+                    {!!Form::submit('Actualizar',['class'=>'btn btn-dark'])!!}
+                    {!!Form::close()!!}
+                </tr>
+                
+                <tr>
+                    {!!Form::open(['route'=>['usuario.destroy', $user], 'method' => 'DELETE'])!!}
+                    {!!Form::submit('Eliminar',['class'=>'btn btn-ligth'])!!}
+                    {!!Form::close()!!}
+                </tr>
+            </table>
+
+
+
 
 
             @else

@@ -43,7 +43,7 @@
             <td>{{$user->document}}</td>
             <td><a href="{{$user->cv}}" target="_blank">Ver hoja de vida</a></td>
             <td>
-                {!!link_to_route('usuario.edit', $title = 'Editar', $parameters = $user, $attributes = ['class'=>'btn btn-primary'])!!}
+                {!!link_to_route('usuario.edit', $title = 'Editar', $parameters = $user, $attributes = ['class'=>'btn btn-dark'])!!}
             </td>
         </tr>
         @endif
