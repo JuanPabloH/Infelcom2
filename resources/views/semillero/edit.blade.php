@@ -8,6 +8,6 @@
 		{!!Form::close()!!}
 
 		{!!Form::open(['route'=>['semillero.destroy', $hotbed], 'method' => 'DELETE'])!!}
-			{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+			{!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'color: #fff;'])!!}
 		{!!Form::close()!!}
 	@endsection

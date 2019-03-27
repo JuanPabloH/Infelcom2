@@ -21,7 +21,7 @@
 				<td>{{$researchCenter->id}}</td>
 		        <td>{{$researchCenter->name}}</td>
 				<td>
-					{!!link_to_route('centroInvestigacion.edit', $title = 'Editar', $parameters = $researchCenter, $attributes = ['class'=>'btn btn-primary'])!!}
+					{!!link_to_route('centroInvestigacion.edit', $title = 'Editar', $parameters = $researchCenter, $attributes = ['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
 				</td>	
 			</tr>
 

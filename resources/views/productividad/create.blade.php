@@ -12,7 +12,7 @@
                 @include('alerts.request')
                 {!!Form::open(['route'=>'productividad.store', 'method'=>'POST','files'=>true])!!}
                 @include('productividad.forms.productivity')
-                {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+                {!!Form::submit('Registrar',['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
                 {!!Form::close()!!}
             </div>
         </div>

@@ -36,7 +36,7 @@
 		        </td>
 				<td>{{$notice->noticeDate}}</td>		        		        		        
 				<td>
-					{!!link_to_route('noticia.edit', $title = 'Editar', $parameters = $notice, $attributes = ['class'=>'btn btn-primary'])!!}
+					{!!link_to_route('noticia.edit', $title = 'Editar', $parameters = $notice, $attributes = ['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
 				</td>	
 			</tr>
 

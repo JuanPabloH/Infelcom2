@@ -49,7 +49,7 @@
                 <td>{{$user->email}}</td>
                 <td>
                     {!!Form::open(['route'=>['userSemillero.destroy', $usersemillero], 'method' => 'DELETE'])!!}
-                    {!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+                    {!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'color: #fff;'])!!}
                     {!!Form::close()!!}
                 </td>
             </tr>

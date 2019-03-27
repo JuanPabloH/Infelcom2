@@ -13,7 +13,7 @@
 	@include('alerts.request')
 	{!!Form::open(['route'=>'userSemillero.store', 'method'=>'POST'])!!}
 		@include('userSemillero.forms.usersem')
-		{!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+		{!!Form::submit('Registrar',['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
 	{!!Form::close()!!}
 	</div>
         </div>

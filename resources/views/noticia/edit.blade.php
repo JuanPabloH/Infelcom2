@@ -8,6 +8,6 @@
 		{!!Form::close()!!}
 
 		{!!Form::open(['route'=>['noticia.destroy', $notice], 'method' => 'DELETE'])!!}
-			{!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+			{!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'color: #fff;'])!!}
 		{!!Form::close()!!}
 	@endsection

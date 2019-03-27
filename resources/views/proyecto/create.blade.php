@@ -13,7 +13,7 @@
                 @include('alerts.request')
                 {!!Form::open(['route'=>'proyecto.store', 'method'=>'POST'])!!}
                 @include('proyecto.forms.project')
-                {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+                {!!Form::submit('Registrar',['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
                 {!!Form::close()!!}
             </div>
         </div>
