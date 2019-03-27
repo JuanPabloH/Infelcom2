@@ -6,7 +6,7 @@
         <div class="card" style="width: 90rem;">
             <div class="card-header text-center">
                 <nav class="navbar navbar-light bg-info">
-                    <h3>AGREGAR... AREA GRUPO</h3>
+                    <h3>ASIGNAR AREA DE INVESTIGACIÓ A GRUPO</h3>
                 </nav>
             </div>
             <div class="card-body">
