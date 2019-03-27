@@ -133,7 +133,7 @@
                     @auth
                     <a href="{{ url('/home') }}" target="_blank">{{ Auth::user()->name }}</a>
                     @else
-                    <li><a href="{{ route('login') }} "target="_blank" style="padding: 10px;">
+                    <li><a href="{{ route('login') }} " target="_blank" style="padding: 10px;">
                             <div class="container text-center">
                                 <i class="fa fa-sign-in" style="font-size: 20px;"></i>
                             </div>
@@ -266,7 +266,7 @@
     <section class="features" id="semillero">
         <div class="container">
             <h2 class="text-center">
-            <!--cambio-->
+                <!--cambio-->
                 SEMILLEROS DE INVESTIGACIÓN
             </h2>
 
@@ -303,25 +303,20 @@
             <h2 class="text-center">
                 NOTICIAS Y EVENTOS
             </h2>
-
-            <div class="row">
-
+            <div class="row text-center">
                 <div class="col-sm-3 col-xs-6">
-                    <div class="container text-center">
-                        <div class="card card-block">
-
-                            <div class="card-title-wrap">
-                            </div>
-                            <div class="team-over">
-                                <nav class="social-nav">
-                                </nav>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-
                 </div>
 
+                <div class="col-sm-3 co">
+                    <a class="btn" href="{!!URL::to('/index')!!}">NOTICIAS</a>
+                </div>
+
+                <div class="col-sm-3">
+                    <a class="btn " href="{!!URL::to('/indexT')!!}">EVENTOS</a>
+                </div>
+
+                <div class="col-sm-3 col-xs-6">
+                </div>
             </div>
 
         </div>
