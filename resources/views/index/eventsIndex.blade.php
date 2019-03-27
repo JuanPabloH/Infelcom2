@@ -89,7 +89,7 @@
     <section class="team" id="team">
         <div class="container">
             <h2 class="text-center">
-                NOTICIAS
+                EVENTOS RECIENTES
             </h2>
 
             <div class="container">
