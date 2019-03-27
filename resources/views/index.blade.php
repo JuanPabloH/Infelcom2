@@ -303,22 +303,19 @@
             <h2 class="text-center">
                 NOTICIAS Y EVENTOS
             </h2>
-            <div class="row text-center">
-                <div class="col-sm-3 col-xs-6">
-                </div>
-
-                <div class="col-sm-3 co">
-                    <a class="btn" href="{!!URL::to('/index')!!}">NOTICIAS</a>
-                </div>
-
-                <div class="col-sm-3">
-                    <a class="btn " href="{!!URL::to('/indexT')!!}">EVENTOS</a>
-                </div>
-
-                <div class="col-sm-3 col-xs-6">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        
+                    </div>
+                    <div class="col-sm">
+                        <a class="btn" href="{!!URL::to('/index')!!}">Ver noticias y eventos</a>
+                    </div>
+                    <div class="col-sm">
+                       
+                    </div>
                 </div>
             </div>
-
         </div>
     </section>
     <!---------------------------------------------------------------------------------------------------------------------->
