@@ -97,7 +97,7 @@
                     <div class="col-sm">
                     </div>
                     <div class="col-sm">
-                        {!! Form::open(['route'=>'index.index','method'=>'GET','class'=>'navbar-form',
+                        {!! Form::open(['route'=>'indexNotice.index','method'=>'GET','class'=>'navbar-form',
                         'role'=>'search']) !!}
                         {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Noticia o evento a buscar']) !!}
                         <div class="container text-center">
@@ -111,44 +111,26 @@
             </div>
 
             <div class="row">
-                @foreach($users as $user)
-                @if($user->hasRole('researcher'))
-                <div class="col-sm-3 col-xs-6">
-
-                    <div class="container text-center">
-                        <div class="card card-block">
-                            @if($user->photo)
-                            <img width="50px" height="200px" src=" {{ url("/usuario/images/$user->photo") }} ">
-                            @else
-                            <img width="50px" height="200px" src=" {{ url("/usuario/images/default.png") }} ">
-                            @endif
-                            <div class="card-title-wrap">
-                                <span class="card-title">{{$user->name}} {{$user->last_name}}</span>
-                            </div>
-                            <div class="team-over">
-                                <h4 class="hidden-md-down">
-                                    Contacto:
-                                </h4>
-                                <p>{{$user->email}}</p>
-                                <nav class="social-nav">
-                                    @if($user->cv)
-                                    <a href="{{$user->cv}}" target="_blanc">CvLac</a>
-                                    @endif
-                                </nav>
-                            </div>
-                            </a>
-                        </div>
-                    </div>
-
+                @foreach($notices as $notice)  
+                <div class="card">
+                  <div class="card-header">
+                    <h5 class="card-title">{{$notice->name}}</h5>
+                  </div>
+                  <div class="card-body">
+                    
+                    <img class="card-img-top" width="50px" height="300" src="{{ url("/noticia/noticiaImages/$notice->id.$notice->photo") }} ">
+                    <p class="card-text"><strong>Fecha: </strong>{{$notice->noticeDate}}</p>
+                    <p class="card-text"><strong>Descripción: </strong>{{$notice->description}}</p>
+                  </div>
                 </div>
-                @endif
+                                            
                 @endforeach
 
-            </div>
+            </div>            
         </div>
     </section>
     <!-- /Team -->
-    {!!$users->appends(Request::only(['name']))->render()!!}
+    {!!$notices->appends(Request::only(['name']))->render()!!}
     <!--  footer -->
 
     <section id="contact">
