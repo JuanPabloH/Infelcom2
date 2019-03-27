@@ -148,23 +148,23 @@ body {
     transition: all .5s;
 }
 
-.btn-primary.btn-outline {
+.btn-primary {
     color: #428bca;
 }
 
-.btn-success.btn-outline {
+.btn-success{
     color: #5cb85c;
 }
 
-.btn-info.btn-outline {
+.btn-info{
     color: #5bc0de;
 }
 
-.btn-warning.btn-outline {
+.btn-warning{
     color: #f0ad4e;
 }
 
-.btn-danger.btn-outline {
+.btn-danger{
     color: #d9534f;
 }
 

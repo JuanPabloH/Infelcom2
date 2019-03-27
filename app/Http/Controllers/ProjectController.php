@@ -17,7 +17,7 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
-        $projects=Project::name($request->get('name'))->paginate(1);
+        $projects=Project::name($request->get('name'))->paginate(5);
         
         return view('proyecto.index',compact('projects'));
     }

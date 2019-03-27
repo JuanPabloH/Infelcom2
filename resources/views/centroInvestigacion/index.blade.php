@@ -10,9 +10,9 @@
 	@section('content')
 	<table class="table">
 		<thead>
-			<th>Id</th>
-			<th>Name</th>
-			<th>Operacion</th>
+			<th>CÓDIGO DE CENTRO</th>
+			<th>NOMBRE</th>
+			<th>OPERACIÓN</th>
 		</thead>
 		
 		<tbody>

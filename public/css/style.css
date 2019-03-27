@@ -5,6 +5,14 @@
     Author URL: https://bootstrapmade.com
 */
 h1, h2, h3, h4, h5, h6 {
+  font-family: "Raleway", Helvetica, Arial;
+}
+
+p {
+  line-height: 2.0;
+  font-size: 20px;
+  font-family: "Raleway", Helvetica, Arial;
+ 
   font-family: "Raleway", Helvetica, Arial, sans-serif;
 }
 
@@ -21,6 +29,8 @@ h1 {
 
 h2 {
   font-size: 30px;
+  margin: 65px;
+  font-weight: bold;
   margin-bottom: 65px;
 }
 
@@ -36,6 +46,9 @@ h4 {
   General
   ================================================== */
 a {
+  -webkit-transition: 0.30s;
+  -o-transition: 0.30s;
+  transition: 0.30s;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
@@ -45,6 +58,15 @@ a {
   Elements
   ================================================== */
 .btn {
+  background-color: #1565C0;
+  padding: 15px 60px;
+  border-radius: 90px;
+  font-family: "Raleway", Helvetica, Arial;
+  margin-bottom: 85px;
+  color: #fff;
+}
+
+.section {
   background-color: #3760a1;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 800;
@@ -119,6 +141,7 @@ a:hover {
   padding: 150px 0;
   color: #fff;
   width: 100%;
+  height: 80vh;
   height: 100vh;
 }
 
@@ -142,8 +165,32 @@ a:hover {
   width: 100%;
 }
 
+
+.frame {
+  display: table;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  background: #3760a1;
+  background-size: cover;
+  padding: 100px 0;
+  width: 100%;
+  height: 80vh;
+  color: #fff;
+}
+
+.framefoot{
+  text-align: center;
+  width: 100%;
+  background: #3760a1;
+  height: 10vh;
+  color: #fff;
+  
+}
+
 .hero-brand {
   margin-bottom: 75px;
+  background: #fff;
   display: inline-block;
 }
 
@@ -259,7 +306,8 @@ a:hover {
 }
 
 .nav-menu ul li {
-  min-width: 180px;
+  min-width: 100px;
+  position: relative;
 }
 
 /* Nav Menu Arrows */
@@ -282,7 +330,7 @@ a:hover {
 
 /* Nav Meu Container */
 #nav-menu-container {
-  margin: 0;
+  margin: 100;
 }
 
 @media (max-width: 768px) {
@@ -520,10 +568,13 @@ body.mobile-nav-active #mobile-nav-toggle {
   ================================================== */
 .features {
   padding-bottom: 45px;
+  height: 80vh;
+  color:  #3760a1;
 }
 
 .features h2 {
   color: #3760a1;
+  
 }
 
 .feature-col {
@@ -545,7 +596,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   height: 70px;
   margin-bottom: 15px;
   background: #3760a1;
-  color: #fff;
   font-size: 24px;
   text-align: center;
   line-height: 70px;
@@ -585,10 +635,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   opacity: .75;
 }
 
-.cta .btn-ghost {
-  position: relative;
-  top: 13px;
-}
 
 /* ==================================================
   Portfolio Styling
@@ -666,6 +712,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   ================================================== */
 .team h2 {
   color: #3760a1;
+  
 }
 
 .team .col-sm-3 {
@@ -686,7 +733,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .team .card p {
-  font-size: 11px;
+  font-size: 20px;
   color: #fff;
   opacity: .75;
   margin: 0;
@@ -745,7 +792,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .team .card-title-wrap .card-title, .team .card-title-wrap .card-text {
-  font-family: "Raleway", Helvetica, Arial, sans-serif;
+  font-family: "Raleway", Helvetica, Arial;
   display: block;
   margin: 0;
 }
@@ -756,7 +803,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .team .card-title-wrap .card-text {
-  font-size: 18px;
+  font-size: 20px;
   color: #999;
 }
 
@@ -853,10 +900,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   line-height: 2.0925;
 }
 
-.site-footer h2,
-.site-footer .btn {
-  margin-bottom: 25px;
-}
 
 .site-footer .social-nav a {
   color: #fff;
@@ -948,10 +991,10 @@ body.mobile-nav-active #mobile-nav-toggle {
     padding-bottom: 30px;
   }
   .portfolio-grid .card h3.card-title {
-    font-size: 18px !important;
+    font-size: 20px !important;
   }
   .portfolio-grid .card .card-text {
-    font-size: 13px;
+    font-size: 20px;
   }
   .team .team-over {
     padding-top: 20px;

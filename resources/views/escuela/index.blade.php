@@ -10,10 +10,10 @@
 	@section('content')
 	<table class="table">
 		<thead>
-			<th>Codigo</th>
-			<th>Name</th>
-			<th>Facultad</th>
-			<th>Operacion</th>
+			<th>CÓDIGO DE ESCUELA</th>
+			<th>NOMBRE</th>
+			<th>FACULTAD</th>
+			<th>OPERACIÓN</th>
 		</thead>
 		
 		<tbody>

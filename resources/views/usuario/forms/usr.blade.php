@@ -30,7 +30,7 @@
 	<div class="form-group">
 		{!!Form::label('role','Elija el rol del usuario:')!!}
 		<select id="role" class="form-control" name="role">
-  			<option value="1">Profesor</option>
+  			<option value="1">Docente</option>
   			<option value="2">Estudiante</option>
 		</select>
 		</div>

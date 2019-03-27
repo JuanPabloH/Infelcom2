@@ -17,10 +17,10 @@
 	</nav>
 	<table class="table">
 		<thead>		
-			<th>Descripción</th>
-			<th>Archivo</th>
-			<th>Proyecto</th>
-			<th>Operacion</th>
+			<th>DESCRIPCIÓN</th>
+			<th>ARCHIVO</th>
+			<th>PROYECTO</th>
+			<th>OPERACIÓN</th>
 		</thead>
 		
 		<tbody>
