@@ -31,11 +31,26 @@ Route::resource('proyecto','ProjectController');
 Route::resource('userSemillero','UserHotbedController');
 Route::resource('centroInvestigacion','ResearchCenterController');
 Route::resource('areaInvestigacion','ResearchAreaController');
+
+Route::resource('noticia','NoticeController');
 Route::resource('productividad','ProductivityController');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('usuario/images/{filename}',function($filename){
 
 	$path=storage_path("app/images/$filename");
+	
+	if (!\File::exists($path)) abort(404);
+	
+	$file=\File::get($path);
+	$type=\File::mimeType($path);
+	$response=Response::make($file,200);
+	$response->header("Content-Type",$type);
+	return $response;
+
+});
+Route::get('noticia/noticiaImages/{filename}',function($filename){
+
+	$path=storage_path("app/noticiaImages/$filename");
 	
 	if (!\File::exists($path)) abort(404);
 	

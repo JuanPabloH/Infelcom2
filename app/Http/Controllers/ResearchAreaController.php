@@ -129,7 +129,7 @@ class ResearchAreaController extends Controller
      */
     public function destroy($id)
     {
-        ResearchCenter::destroy($id);
+        ResearchArea::destroy($id);
         Session::flash('message','Area de investigacion Eliminado Correctamente');
         return redirect('/areaInvestigacion');
     }

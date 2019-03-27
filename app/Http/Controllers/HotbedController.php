@@ -17,8 +17,7 @@ class HotbedController extends Controller
      */
     public function index(Request $request)
     {
-        $hotbeds=Hotbed::name($request->get('name'))->paginate(5);
-        
+        $hotbeds=Hotbed::name($request->get('name'))->paginate(5);   
         return view('semillero.index',compact('hotbeds'));
     }
 
