@@ -64,10 +64,10 @@
 
             <div class="col-md-12">
                 <div class="text-wrap">
-                    <h1>INFELCOM</h1>
+                    <h1>{{$group->acronym}}</h1>
                 </div>
                 <h2 class="text-muted">
-                    Grupo de investigación en informática, electrónica y comunicaciones.
+                    {{$group->name}}
                 </h2>
                 <a class="btn" href="#about">CONOCER MÁS</a>
                 <div class="img-fluid">
@@ -131,9 +131,9 @@
 
                     @if (Route::has('login'))
                     @auth
-                    <a href="{{ url('/home') }}">{{ Auth::user()->name }}</a>
+                    <a href="{{ url('/home') }}" target="_blank">{{ Auth::user()->name }}</a>
                     @else
-                    <li><a href="{{ route('login') }}" style="padding: 10px;">
+                    <li><a href="{{ route('login') }} "target="_blank" style="padding: 10px;">
                             <div class="container text-center">
                                 <i class="fa fa-sign-in" style="font-size: 20px;"></i>
                             </div>
