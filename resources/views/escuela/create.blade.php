@@ -13,7 +13,7 @@
                 @include('alerts.request')
                 {!!Form::open(['route'=>'escuela.store', 'method'=>'POST'])!!}
                 @include('escuela.forms.school')
-                {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+                {!!Form::submit('Registrar',['class'=>'btn btn-ligth'])!!}
                 {!!Form::close()!!}
 
             </div>

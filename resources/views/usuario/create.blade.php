@@ -14,9 +14,15 @@
                 @include('alerts.request')
                 {!!Form::open(['route'=>'usuario.store', 'method'=>'POST','files'=>true])!!}
                 @include('usuario.forms.usr')
-                {!!Form::submit('Registrar',['class'=>'btn btn-dark'])!!}
-                {!!Form::close()!!}
+
             </div>
+
+            <table class="table text-center">
+                <tr>{!!Form::submit('Registrar',['class'=>'btn btn-ligth'])!!}
+                    {!!Form::close()!!}</tr>
+            </table>
+
+
         </div>
     </div>
 
