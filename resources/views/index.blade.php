@@ -260,13 +260,13 @@
         </div>
     </section>
     <!------------------------------------------------------------------------------------------------------------->
-
     <!-------------------------------------seccion semilleros------------------------------------------------------>
     <!------------------------------------------------------------------------------------------------------------->
 
     <section class="features" id="semillero">
         <div class="container">
             <h2 class="text-center">
+            <!--cambio-->
                 SEMILLEROS DE INVESTIGACIÓN
             </h2>
 
@@ -313,9 +313,7 @@
                             <div class="card-title-wrap">
                             </div>
                             <div class="team-over">
-                                
                                 <nav class="social-nav">
-
                                 </nav>
                             </div>
                             </a>
@@ -345,7 +343,7 @@
 
                         <div>
                             <i class="fa fa-envelope"></i>
-                            <p>{{$group->email}}</p>
+                            <p style="color: #000">{{$group->email}}</p>
                         </div>
                     </div>
                 </div>
