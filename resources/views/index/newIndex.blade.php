@@ -118,7 +118,7 @@
                   </div>
                   <div class="card-body">
                     
-                    <img class="card-img-top" width="50px" height="300" src="{{ url("/noticia/noticiaImages/$notice->id.$notice->photo") }} ">
+                    <img class="card-img-top" src="{{ url("/noticia/noticiaImages/$notice->id.$notice->photo") }} ">
                     <p class="card-text"><strong>Fecha: </strong>{{$notice->noticeDate}}</p>
                     <p class="card-text"><strong>Descripción: </strong>{{$notice->description}}</p>
                   </div>
