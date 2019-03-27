@@ -60,6 +60,12 @@
     <header id="header">
         <div class="container">
 
+            <div id="logo" class="pull-left">
+                <a href="index.html"><img src="img/LogoInfelcom.jpg" alt="" title="" /></img></a>
+
+
+            </div>
+
             <nav id="nav-menu-container">
 
             </nav>
@@ -83,7 +89,7 @@
     <section class="team" id="team">
         <div class="container">
             <h2 class="text-center">
-                DOCENTES INVESTIGADORES
+                NOTICIAS Y EVENTOS
             </h2>
 
             <div class="container">
@@ -93,7 +99,7 @@
                     <div class="col-sm">
                         {!! Form::open(['route'=>'index.index','method'=>'GET','class'=>'navbar-form',
                         'role'=>'search']) !!}
-                        {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Nombre de docente']) !!}
+                        {!! Form::text('name',null,['class'=>'form-control','placeholder'=>'Noticia o evento a buscar']) !!}
                         <div class="container text-center">
                             <button class="btn" style="margin: 16px;" type="submit">BUSCAR</button>
                         </div>
