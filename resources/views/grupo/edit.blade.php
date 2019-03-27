@@ -13,7 +13,7 @@
                 @include('alerts.request')
                 {!!Form::model($group,['route'=>['grupo.update',$group],'method'=>'PUT'])!!}
                 @include('grupo.forms.group')
-                {!!Form::submit('Actualizar',['class'=>'btn btn-primary'])!!}
+                {!!Form::submit('Actualizar',['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
                 {!!Form::close()!!}
             </div>
         </div>

@@ -48,8 +48,8 @@
         <h3>AREAS DE INVESTIGACIÓN DEL GRUPO</h3>
     </nav>
     
-    {!!link_to_route('areaGrupo.create', $title = 'Agregar area de investigación al grupo', $parameters = '', $attributes = ['class'=>'btn btn-info'])!!}
-    {!!link_to_route('areaInvestigacion.create', $title = 'Crear nueva area de investigación', $parameters = '', $attributes = ['class'=>'btn btn-info'])!!}
+    {!!link_to_route('areaGrupo.create', $title = 'Agregar area de investigación al grupo', $parameters = '', $attributes = ['class'=>'btn btn-info','style'=>'color: #fff;'])!!}
+    {!!link_to_route('areaInvestigacion.create', $title = 'Crear nueva area de investigación', $parameters = '', $attributes = ['class'=>'btn btn-info','style'=>'color: #fff;'])!!}
     <br>
     <table class="table">
         @foreach($area_grupos as $area_grupo)
@@ -60,7 +60,7 @@
                 <td>{{$area->name}}</td>
                 <td>
                     {!!Form::open(['route'=>['areaGrupo.destroy', $area_grupo], 'method' => 'DELETE'])!!}
-                    {!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+                    {!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'color: #fff;'])!!}
                     {!!Form::close()!!}
                 </td>
             </tr>
@@ -80,8 +80,8 @@
         <h3>LINEAS DE INVESTIGACIÓN</h3>
     </nav>
 
-    {!!link_to_route('grupoLinea.create', $title = 'Agregar area de investigación al grupo', $parameters = '', $attributes = ['class'=>'btn btn-info'])!!}
-    {!!link_to_route('lineaInvestigacion.create', $title = 'Crear nueva area de investigación', $parameters = '', $attributes = ['class'=>'btn btn-info'])!!}
+    {!!link_to_route('grupoLinea.create', $title = 'Agregar area de investigación al grupo', $parameters = '', $attributes = ['class'=>'btn btn-info','style'=>'color: #fff;'])!!}
+    {!!link_to_route('lineaInvestigacion.create', $title = 'Crear nueva area de investigación', $parameters = '', $attributes = ['class'=>'btn btn-info','style'=>'color: #fff;'])!!}
     <br>
     <table class="table">
         @foreach($group_lines as $group_line)
@@ -92,7 +92,7 @@
                 <td>{{$line->name}}</td>
                 <td>
                     {!!Form::open(['route'=>['grupoLinea.destroy', $group_line], 'method' => 'DELETE'])!!}
-                    {!!Form::submit('Eliminar',['class'=>'btn btn-danger'])!!}
+                    {!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'color: #fff;'])!!}
                     {!!Form::close()!!}
                 </td>
             </tr>

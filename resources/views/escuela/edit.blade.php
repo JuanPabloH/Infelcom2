@@ -18,13 +18,13 @@
             </div>
 
             <table class="table">
-                <tr>{!!Form::submit('Actualizar',['class'=>'btn btn-ligth'])!!}
+                <tr>{!!Form::submit('Actualizar',['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
                     {!!Form::close()!!}
                 </tr>
 
                 <tr>
                     {!!Form::open(['route'=>['escuela.destroy', $school], 'method' => 'DELETE'])!!}
-                    {!!Form::submit('Eliminar',['class'=>'btn btn-ligth'])!!}
+                    {!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'color: #fff;'])!!}
                     {!!Form::close()!!}</tr>
             </table>
 

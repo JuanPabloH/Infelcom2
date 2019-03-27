@@ -35,7 +35,7 @@
             <td>{{$hotbed->objective}}</td>
             <td>
                 {!!link_to_route('semillero.edit', $title = 'Editar', $parameters = $hotbed, $attributes =
-                ['class'=>'btn btn-primary'])!!}
+                ['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
             </td>
         </tr>
 

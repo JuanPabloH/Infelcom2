@@ -17,15 +17,15 @@
 
             </div>
 
-            <div class="container text-center">
+            <div class="container">
 
                 <table class="table">
-                    <tr>{!!Form::submit('Actualizar',['class'=>'btn btn-ligth'])!!}
+                    <tr>{!!Form::submit('Actualizar',['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
                         {!!Form::close()!!}
                     </tr>
                     <tr>
                         {!!Form::open(['route'=>['facultad.destroy', $faculty], 'method' => 'DELETE'])!!}
-                        {!!Form::submit('Eliminar',['class'=>'btn btn-LIGTH'])!!}
+                        {!!Form::submit('Eliminar',['class'=>'btn btn-danger','style'=>'color: #fff;'])!!}
                         {!!Form::close()!!}</tr>
                 </table>
 

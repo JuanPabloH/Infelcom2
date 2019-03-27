@@ -38,7 +38,7 @@
 		        	@endforeach
 		        </td>
 				<td>
-					{!!link_to_route('productividad.edit', $title = 'Editar', $parameters = $productivity, $attributes = ['class'=>'btn btn-primary'])!!}
+					{!!link_to_route('productividad.edit', $title = 'Editar', $parameters = $productivity, $attributes = ['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
 				</td>	
 			</tr>
 

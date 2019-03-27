@@ -31,7 +31,7 @@
             <td>{{$project->status}}</td>
             <td>{{$project->objective}}</td>
             <td>
-                {!!link_to_route('proyecto.edit', $title = 'Editar', $parameters = $project, $attributes = ['class'=>'btn btn-primary'])!!}
+                {!!link_to_route('proyecto.edit', $title = 'Editar', $parameters = $project, $attributes = ['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
             </td>
         </tr>
 
