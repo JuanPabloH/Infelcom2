@@ -21,6 +21,12 @@ class User extends Authenticatable
         'document','name','last_name','cv','photo', 'email', 'password',
     ];
 
+    public function User_Hotbed(){
+        return $this->hasMany('App\User_Hotbed');
+    }
+    public function hotbeds(){
+        return $this->belongsToMany('App\Hodbed','user_hotbeds');
+    }
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -63,5 +69,10 @@ class User extends Authenticatable
             return true;
         }
         return false;
+    }
+    public function scopeName($query,$name){
+        if (trim($name) != "") {
+           $query->where(\DB::raw("CONCAT(name,' ',last_name)"),"LIKE","%$name%"); 
+        }    
     }
 }

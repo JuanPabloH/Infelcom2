@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Faculty;
 use Illuminate\Http\Request;
 use Session;
-
+use Illuminate\Support\Facades\Validator;
 class FacultyController extends Controller
 {
     /**
@@ -38,6 +38,21 @@ class FacultyController extends Controller
      */
     public function store(Request $request)
     {
+        $data=$request->all();
+        $rules = array(
+            'code' => ['required','string', 'max:255','unique:faculties'],
+            'name' => ['required', 'string', 'max:255','unique:faculties'],           
+        );
+        $messages = [
+            'code.required' => 'Por favor ingrese el campo del Codigo de la escuela',
+            'code.unique' => 'El Codigo ingresado ya se encuentra registrado',        
+            'name.required' => 'Por favor ingrese el campo del nombre',
+            'name.unique' => 'El nombre ingresado ya se encuentra registrado',                               
+        ];
+        $v=Validator::make($data,$rules,$messages);
+        if ($v->fails()) {
+            return redirect()->back()->withErrors($v->errors())->withInput($request->except('password'));
+        }
         $faculties=new Faculty;
         $faculties->code=$request->code;
         $faculties->name=$request->name;
@@ -78,7 +93,40 @@ class FacultyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $faculty = Faculty::find($id);
+        $data=$request->all();
+        $faculty=Faculty::find($id);
+
+        if ($request->code==$faculty->code && $request->name==$faculty->name) {
+            $rules = array(       
+        );
+        }
+        elseif ($request->code==$faculty->code) {
+            $rules = array(
+            'name' => ['required', 'string', 'max:255','unique:faculties'],           
+        );
+        }
+        elseif ($request->name==$faculty->name) {
+            $rules = array(
+            'code' => ['required','string', 'max:255','unique:faculties'],           
+        );
+        }
+        else{
+            $rules = array(
+            'code' => ['required','string', 'max:255','unique:faculties'],
+            'name' => ['required', 'string', 'max:255','unique:faculties'],           
+        );
+        }
+
+        $messages = [
+            'code.required' => 'Por favor ingrese el campo del Codigo de la escuela',
+            'code.unique' => 'El Codigo ingresado ya se encuentra registrado',        
+            'name.required' => 'Por favor ingrese el campo del nombre',
+            'name.unique' => 'El nombre ingresado ya se encuentra registrado',                               
+        ];
+        $v=Validator::make($data,$rules,$messages);
+        if ($v->fails()) {
+            return redirect()->back()->withErrors($v->errors())->withInput($request->except('password'));
+        }
         $faculty->code=$request->code;
         $faculty->name=$request->name;
         

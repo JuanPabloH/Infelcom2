@@ -14,9 +14,10 @@ use Session;
 
 class UsersController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-    	$users=User::paginate(5);
+
+    	$users=User::name($request->get('name'))->paginate(5);
     	
         return view('usuario.index',compact('users'));
     }
@@ -42,7 +43,7 @@ class UsersController extends Controller
     {
         $data=$request->all();
         $rules = array(
-            'document' => ['required','string', 'max:255','unique:users'],
+            'document' => ['required','numeric', 'max:255','unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -51,7 +52,7 @@ class UsersController extends Controller
         $messages = [
             'document.required' => 'Por favor ingrese el campo del documento',
             'document.unique' => 'El documento ingresado ya se encuentra registrado',
-            'document.integer' => 'El documento del usuario debe ser numerico, por favor verifique el campo',
+            'document.numeric' => 'El documento del usuario debe ser numerico, por favor verifique el campo',
             'name.required' => 'Por favor ingrese el campo del nombre',
             'last_name.required' => 'Por favor ingrese el campo del apellido',
             'email.required' => 'Por favor ingrese el campo del email',
@@ -76,10 +77,18 @@ class UsersController extends Controller
     	$user->cv=$request->cv;
     	$user->email=$request->email;
     	$user->password=Hash::make($request->password);
+        
     	$user->save();
-    	$user
-        ->roles()
-        ->attach(Role::where('name', 'user')->first());
+        if ($request->role==1) {
+            $user
+            ->roles()
+            ->attach(Role::where('name', 'researcher')->first());
+        }elseif ($request->role==2) {
+            $user
+            ->roles()
+            ->attach(Role::where('name', 'user')->first());
+        }
+    	
         if ($hasfile) {
             $request->photo->storeAs('images',"$request->document.$extension");
         }
@@ -203,6 +212,7 @@ class UsersController extends Controller
         }
     	
         $user->save();
+
         if ($hasfile) {
             $request->photo->storeAs('images',"$request->document.$extension");
         }

@@ -1,3 +1,4 @@
+
 <div class="form-group">
 		{!!Form::label('document','Documento:')!!}
 		{!!Form::text('document',null,['class'=>'form-control','placeholder'=>'Ingresa el documento del usuario'])!!}
@@ -11,7 +12,7 @@
 		{!!Form::text('last_name',null,['class'=>'form-control','placeholder'=>'Ingresa el apellido del usuario'])!!}
 	</div>
 	<div class="form-group">
-		{!!Form::label('cv','CV:')!!}
+		{!!Form::label('cv','CV Lac:')!!}
 		{!!Form::text('cv',null,['class'=>'form-control','placeholder'=>'Ingresa el cv del usuario'])!!}
 	</div>
 	<div class="form-group">
@@ -26,5 +27,12 @@
 		{!!Form::label('password','Contraseña:')!!}
 		{!!Form::password('password',['class'=>'form-control','placeholder'=>'Ingresa la contraseña del usuario'])!!}
 	</div>
+	<div class="form-group">
+		{!!Form::label('role','Elija el rol del usuario:')!!}
+		<select id="role" class="form-control" name="role">
+  			<option value="1">Docente</option>
+  			<option value="2">Estudiante</option>
+		</select>
+		</div>
 
 	                        

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHotbedsTable extends Migration
+class CreateGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateHotbedsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hotbeds', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->increments('id');
             $table->string('classification');
             $table->string('name')->unique();
@@ -27,9 +27,8 @@ class CreateHotbedsTable extends Migration
             $table->text('workplan');
             $table->integer('id_school')->unsigned();
             $table->integer('id_research_center')->unsigned();
-
-            $table->foreign('id_school')->references('id')->on('schools');
-            $table->foreign('id_research_center')->references('id')->on('research_centers');
+            $table->foreign('id_school')->references('id')->on('schools')->onDelete('cascade');
+            $table->foreign('id_research_center')->references('id')->on('research_centers')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -41,6 +40,6 @@ class CreateHotbedsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hotbeds');
+        Schema::dropIfExists('groups');
     }
 }
