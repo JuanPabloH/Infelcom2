@@ -126,11 +126,11 @@ class ProjectController extends Controller
         $data=$request->all();
         $project=Project::find($id);
 
-        if ($request->code==$faculty->code && $request->name==$faculty->name) {
+        if ($request->code==$project->code && $request->name==$project->name) {
             $rules = array(       
         );
         }
-        elseif ($request->code==$faculty->code) {
+        elseif ($request->code==$project->code) {
             $rules = array(
             'name' => ['required', 'string', 'max:255','unique:faculties'],
             'status' => ['required', 'string'],
@@ -138,12 +138,12 @@ class ProjectController extends Controller
             'objective' => ['required', 'string'],
             'duration' => ['required', 'integer'],           
             'sumary' => ['required', 'string'],
-            'financing' => ['required', 'decimal'],
-            'valueProject' => ['required', 'decimal'],
+            'financing' => ['required', 'numeric'],
+            'valueProject' => ['required', 'numeric'],
             'id_line' => ['required'],           
         );
         }
-        elseif ($request->name==$faculty->name) {
+        elseif ($request->name==$project->name) {
             $rules = array(
             'code' => ['required','string', 'max:255','unique:faculties'],
             'status' => ['required', 'string'],
@@ -151,8 +151,8 @@ class ProjectController extends Controller
             'objective' => ['required', 'string'],
             'duration' => ['required', 'integer'],           
             'sumary' => ['required', 'string'],
-            'financing' => ['required', 'decimal'],
-            'valueProject' => ['required', 'decimal'],
+            'financing' => ['required', 'numeric'],
+            'valueProject' => ['required', 'numeric'],
             'id_line' => ['required'],         
         );
         }
@@ -165,8 +165,8 @@ class ProjectController extends Controller
             'objective' => ['required', 'string'],
             'duration' => ['required', 'integer'],           
             'sumary' => ['required', 'string'],
-            'financing' => ['required', 'decimal'],
-            'valueProject' => ['required', 'decimal'],
+            'financing' => ['required', 'numeric'],
+            'valueProject' => ['required', 'numeric'],
             'id_line' => ['required'],          
         );
         }

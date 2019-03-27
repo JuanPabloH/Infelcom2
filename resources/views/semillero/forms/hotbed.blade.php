@@ -4,7 +4,10 @@
 		{!!Form::label('name','Nombre:')!!}
 		{!!Form::text('name',null,['class'=>'form-control','placeholder'=>'Ingresa el Nombre del semillero'])!!}
 		{!!Form::label('status','Estado:')!!}
-		{!!Form::text('status',null,['class'=>'form-control','placeholder'=>'Ingresa el estado del semillero'])!!}
+		<select id="status" class="form-control" name="status">
+  			<option value="Activo">Activo</option>
+  			<option value="Inactivo">Inactivo</option>
+		</select>
 		{!!Form::label('objective','Objetivo:')!!}
 		{!!Form::textarea('objective',null,['class'=>'form-control','placeholder'=>'Ingresa el objetivo del semillero'])!!}
 

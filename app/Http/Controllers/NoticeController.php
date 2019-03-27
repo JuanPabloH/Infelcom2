@@ -65,6 +65,7 @@ class NoticeController extends Controller
         }
         $notice->name=$request->name;
         $notice->description=$request->description;
+        $notice->noticeDate=$request->noticeDate;
         $notice->save();
 
         if ($hasfile) {
@@ -136,7 +137,8 @@ class NoticeController extends Controller
             $notice->photo=$extension; 
         }
         $notice->name=$request->name;
-        $notice->description=$request->description;    
+        $notice->description=$request->description;  
+        $notice->noticeDate=$request->noticeDate;  
         $notice->save();
         Session::flash('message','Información de noticia actualizada correctamente');
         if ($hasfile) {
