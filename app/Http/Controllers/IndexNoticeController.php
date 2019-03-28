@@ -15,7 +15,7 @@ class IndexNoticeController extends Controller
     {
     
     
-        $notices=Notice::name($request->get('name'))->paginate(10);
+        $notices=Notice::name($request->get('name'))->paginate(5);
         
         return view('index.newIndex',compact('notices'));
     
