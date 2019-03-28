@@ -12,7 +12,7 @@
                 @include('alerts.request')
                 {!!Form::open(['route'=>'areaInvestigacion.store', 'method'=>'POST'])!!}
                 @include('areaInvestigacion.forms.area')
-                {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+                {!!Form::submit('Registrar',['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
                 {!!Form::close()!!}
             </div>
         </div>

@@ -6,14 +6,14 @@
         <div class="card" style="width: 90rem;">
             <div class="card-header text-center">
                 <nav class="navbar navbar-light bg-info">
-                    <h3>ASIGNAR AREA DE INVESTIGACIÓ A GRUPO</h3>
+                    <h3>ASIGNAR AREA DE INVESTIGACIÓN A GRUPO</h3>
                 </nav>
             </div>
             <div class="card-body">
                 @include('alerts.request')
                 {!!Form::open(['route'=>'areaGrupo.store', 'method'=>'POST'])!!}
                 @include('areaGrupo.forms.arsem')
-                {!!Form::submit('Registrar',['class'=>'btn btn-primary'])!!}
+                {!!Form::submit('Registrar',['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
                 {!!Form::close()!!}
             </div>
         </div>
