@@ -46,9 +46,11 @@ class NoticeController extends Controller
         $rules = array(
             'name' => ['required', 'string', 'max:255','unique:notices'],
             'description' => ['required'],
+            'photo' => ['required'],
                  
         );
         $messages = [
+            'photo.required' => 'Por favor ingrese una imagen para la noticia',
             'name.required' => 'Por favor ingrese el campo del nombre',
             'name.unique' => 'El nombre ingresado ya se encuentra registrado', 
             'description.required' => 'Por favor ingrese la descripción de la noticia'                              

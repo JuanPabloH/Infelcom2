@@ -309,7 +309,7 @@
                         
                     </div>
                     <div class="col-sm">
-                        <a class="btn" href="{!!URL::to('/index')!!}">Ver noticias y eventos</a>
+                        <a class="btn" href="{!!URL::to('/indexNotice')!!}">Ver noticias y eventos</a>
                     </div>
                     <div class="col-sm">
                        

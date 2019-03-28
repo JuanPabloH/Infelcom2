@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::resource('index','IndexUserController');
+Route::resource('indexNotice','IndexNoticeController');
 Route::resource('indexT','IndexTeacherController');
 Route::resource('usuario','UsersController');
 Route::resource('lineaInvestigacion','LineInvestigationController');
