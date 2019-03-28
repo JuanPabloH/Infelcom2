@@ -80,8 +80,8 @@
         <h3>LINEAS DE INVESTIGACIÓN</h3>
     </nav>
 
-    {!!link_to_route('grupoLinea.create', $title = 'Agregar area de investigación al grupo', $parameters = '', $attributes = ['class'=>'btn btn-info','style'=>'color: #fff;'])!!}
-    {!!link_to_route('lineaInvestigacion.create', $title = 'Crear nueva area de investigación', $parameters = '', $attributes = ['class'=>'btn btn-info','style'=>'color: #fff;'])!!}
+    {!!link_to_route('grupoLinea.create', $title = 'Agregar linea de investigación al grupo', $parameters = '', $attributes = ['class'=>'btn btn-info','style'=>'color: #fff;'])!!}
+    {!!link_to_route('lineaInvestigacion.create', $title = 'Crear linea investigación', $parameters = '', $attributes = ['class'=>'btn btn-info','style'=>'color: #fff;'])!!}
     <br>
     <table class="table">
         @foreach($group_lines as $group_line)
