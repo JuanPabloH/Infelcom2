@@ -21,7 +21,7 @@
 				<td>{{$faculty->code}}</td>
 		        <td>{{$faculty->name}}</td>
 				<td>
-					{!!link_to_route('facultad.edit', $title = 'Editar', $parameters = $faculty, $attributes = ['class'=>'btn btn-ligth'])!!}
+					{!!link_to_route('facultad.edit', $title = 'Editar', $parameters = $faculty, $attributes = ['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
 				</td>	
 			</tr>
 

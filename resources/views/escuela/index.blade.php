@@ -24,7 +24,7 @@
 		        <?php $nameFaculty=App\Faculty::find($school->id_faculty) ?>	
 		        	<td>{{$nameFaculty->name}}</td>		     
 				<td>
-					{!!link_to_route('escuela.edit', $title = 'Editar', $parameters = $school, $attributes = ['class'=>'btn btn-ligth'])!!}
+					{!!link_to_route('escuela.edit', $title = 'Editar', $parameters = $school, $attributes = ['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
 				</td>	
 			</tr>
 

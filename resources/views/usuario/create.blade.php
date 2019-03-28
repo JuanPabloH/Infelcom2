@@ -18,7 +18,7 @@
             </div>
 
             <table class="table text-center">
-                <tr>{!!Form::submit('Registrar',['class'=>'btn btn-ligth'])!!}
+                <tr>{!!Form::submit('Registrar',['class'=>'btn btn-primary','style'=>'color: #fff;'])!!}
                     {!!Form::close()!!}</tr>
             </table>
 
