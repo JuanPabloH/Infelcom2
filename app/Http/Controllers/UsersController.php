@@ -43,7 +43,7 @@ class UsersController extends Controller
     {
         $data=$request->all();
         $rules = array(
-            'document' => ['required','numeric', 'max:255','unique:users'],
+            'document' => ['required','numeric','unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],

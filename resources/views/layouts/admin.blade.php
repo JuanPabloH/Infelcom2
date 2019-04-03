@@ -79,32 +79,7 @@
                     </li>
 
                     <!--------------------------------------------------------------------------------------------------------->
-                    <li>
-                        <a href="#" style="font-size: 15px">
-                            <i class="fa fa-building-o fa-fw" style="font-size: 20px;"></i>Facultades<span class="fa arrow"></span>
-                        </a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{!!URL::to('/facultad/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar facultades</a>
-                            </li>
-                            <li>
-                                <a href="{!!URL::to('/facultad')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver facultades</a>
-                            </li>
-                        </ul>
-                    </li>
 
-                    <!--------------------------------------------------------------------------------------------------------->
-                    <li>
-                        <a href="#" style="font-size: 15px"><i class="fa fa-graduation-cap fa-fw" style="font-size: 20px;"></i>Escuelas<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="{!!URL::to('/escuela/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar escuelas</a>
-                            </li>
-                            <li>
-                                <a href="{!!URL::to('/escuela')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver escuelas</a>
-                            </li>
-                        </ul>
-                    </li>
 
                     <!--------------------------------------------------------------------------------------------------------->
                     <li>
@@ -276,6 +251,35 @@
                         </ul>
                     </li>
                     <!------------------------------------------------------------------------------------------------------------->
+                    <!--------------------------------------------------------------------------------------------------------->
+                    <li>
+                        <a href="#" style="font-size: 15px"><i class="fa fa-child fa-fw" style="font-size: 20px;"></i>Página principal<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><?php $idGrupo = 1 ?>
+                                <a href="{{route('grupo.edit', $parameters = $idGrupo)}}">
+                                    <i class='fa fa-pencil-square-o fa-fw'></i>Modificar información
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{!!URL::to('/grupo')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver Información </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--------------------------------------------------------------------------------------------------------->
+                    
+                    <li>
+                        <a href="#" style="font-size: 15px"><i class="fa fa-newspaper-o fa-fw" style="font-size: 20px;"></i>Noticia-Evento<span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="{!!URL::to('/noticia/create')!!}"><i class='fa fa-plus fa-fw'></i> Agregar noticia-evento</a>
+                            </li>
+                            <li>
+                                <a href="{!!URL::to('/noticia')!!}"><i class='fa fa-list-ol fa-fw'></i>Ver noticia-evento</a>
+                            </li>
+                        </ul>
+                    </li>
+                
                 </ul>
             </div>
         </div>

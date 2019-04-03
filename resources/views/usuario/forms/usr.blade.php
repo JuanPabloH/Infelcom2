@@ -1,7 +1,7 @@
 
 <div class="form-group">
 		{!!Form::label('document','Documento:')!!}
-		{!!Form::text('document',null,['class'=>'form-control','placeholder'=>'Ingresa el documento del usuario'])!!}
+		{!!Form::number('document',null,['class'=>'form-control','placeholder'=>'Ingresa el documento del usuario'])!!}
 	</div>
 <div class="form-group">
 		{!!Form::label('name','Nombre:')!!}
